@@ -518,7 +518,7 @@
 
 
             .user-label {
-                display: none;
+                display: inline;
             }
 
             .topbar-right {
@@ -583,7 +583,6 @@
             <span>SupaFolio</span>
         </a>
 
-       
 
         <div class="topbar-right">
               
