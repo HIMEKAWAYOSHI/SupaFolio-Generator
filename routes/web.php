@@ -12,7 +12,7 @@ Route::redirect('/', '/login');
 
 Route::view('/about', 'about')->name('about');
 
-Route:::middleware('guest')->group(function () {
+Route::middleware('guest')->group(function () {
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.collect');
 
