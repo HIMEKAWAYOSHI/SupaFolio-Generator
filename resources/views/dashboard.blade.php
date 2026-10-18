@@ -627,7 +627,7 @@
 
                 <div>
                     <h2>
-                        Welcome back, {{ Auth::user()->username }}!
+                        Welcome back {{ Auth::user()->username }}!
                     </h2>
 
                     <p>
