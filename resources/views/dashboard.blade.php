@@ -583,14 +583,14 @@
             <span>SupaFolio</span>
         </a>
 
-        <a href="{{ route('about') }}" class="about-btn">
-                About
-        </a>
+       
 
         <div class="topbar-right">
               
             <span class="user-label">
-                {{ Auth::user()->username }}
+                 <a href="{{ route('about') }}" class="about-btn">
+                About
+            </a>
             </span>
 
             
