@@ -9,7 +9,7 @@
 
         <div class="ts-heading">
             <div class="ts-name">
-                <p>Your Name</p>
+                <p>{{ Auth::user()->username }}</p>
             </div>
         </div>
     </div>
