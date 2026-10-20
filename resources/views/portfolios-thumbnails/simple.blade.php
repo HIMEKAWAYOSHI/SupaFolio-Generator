@@ -9,7 +9,7 @@
 
         <div class="ts-heading">
             <div class="ts-name">
-                <p>{{ Auth::user()->username }}</p>
+                <p>{{$portfolio->full_name}}</p>
             </div>
         </div>
     </div>

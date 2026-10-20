@@ -8,7 +8,7 @@
         @endif
 
         <div class="tm-name">
-            <p>Your Name</p>
+            <p>{{$portfolio->full_name}}</p>
         </div>
     </div>
 

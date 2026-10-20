@@ -9,7 +9,7 @@
         @endif
 
         <div class="tc-name">
-            <p>Your Name</p>
+            <p>{{$portfolio->full_name}}</p>
         </div>
         
     </div>
