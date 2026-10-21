@@ -49,7 +49,12 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--border);
-            background: rgba(255, 253, 251, 0.95);
+            background: rgba(255, 253, 251, 0.97);
+
+            /* Keeps the header at the top while scrolling */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .brand {
@@ -68,12 +73,18 @@
             gap: 17px;
         }
 
-        .about-btn {
+       .about-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
             padding: 10px 14px;
+            min-height: 39px;
             border: 1px solid var(--border);
             border-radius: 9px;
             color: var(--brown);
             font-size: 13px;
+            font-family: inherit;
+            line-height: normal;
             transition: 0.2s;
         }
 
@@ -90,11 +101,18 @@
         
 
         .logout-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 39px;
+            padding: 10px 14px;
             background: transparent;
             border: 1px solid var(--border);
             border-radius: 9px;
-            padding: 10px 14px;
             color: var(--brown);
+            font-size: 13px;
+            font-family: inherit;
+            line-height: normal;
             cursor: pointer;
             transition: 0.2s;
         }
@@ -568,6 +586,13 @@
 
             .section-heading h2 {
                 font-size: 19px;
+            }
+
+            .about-btn,
+            .logout-btn {
+                min-height: 35px;
+                padding: 9px 10px;
+                font-size: 12px;
             }
         }
     </style>

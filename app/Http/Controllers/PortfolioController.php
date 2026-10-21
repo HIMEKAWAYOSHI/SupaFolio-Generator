@@ -225,11 +225,40 @@ class PortfolioController extends Controller
             'work_experiences' => $this->filledRows($request->input('work_experiences', []), 'company'),
         ]);
 
+        
+       $educations = $request->input('educations', []);
+
+$seenSchools = [];
+$errors = [];
+
+foreach ($educations as $index => $education) {
+    $level = strtolower(trim($education['education_level'] ?? ''));
+    $school = strtolower(trim($education['school_name'] ?? ''));
+
+    if ($level === '' || $school === '') {
+        continue;
+    }
+
+    $key = $level . '|' . $school;
+
+    if (isset($seenSchools[$key])) {
+        $errors["educations.$index.school_name"] =
+            'This school has already been entered for this education level.';
+    } else {
+        $seenSchools[$key] = true;
+    }
+}
+
+if (!empty($errors)) {
+    throw ValidationException::withMessages($errors);
+}
+
+
         $data = $request->validate([
             'title'           => 'required|string|max:255',
-            'full_name'       => 'required|string|max:255',
+            'full_name'       => 'required|string|max:255|regex:/^[\pL\pM\s.\'-]+$/u',
             'email'           => 'required|email|max:255',
-            'contact_number'  => 'nullable|string|max:50',
+            'contact_number'  => 'nullable|regex:/^[0-9]+$/|max:15',
             'address'         => 'nullable|string|max:255',
             'about_me'        => 'nullable|string',
             'profile_picture' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
@@ -259,6 +288,10 @@ class PortfolioController extends Controller
             'work_experiences.*.description' => 'nullable|string',
         ], 
         [//error messages
+            'full_name.regex' => 'Full name must not contain numbers.',
+            'contact_number.regex' => 'Contact number must contain numbers only.',
+            'contact_number.max' => 'Contact number must not exceed 15 digits.',
+        
             'projects.*.project_link.distinct' => 'Project link been used twice',
             'social_links.*.url.distinct' => 'Social link been used twice',
             'social_links.*.url.required' => 'Social Link is required',
