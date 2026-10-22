@@ -619,7 +619,11 @@
 
             
 
-            <form action="{{ route('logout') }}" method="POST">
+            <form action="{{ route('logout') }}" method="POST" 
+                onsubmit="return confirm('Are you sure you want to log out?');"
+                >
+
+                
                 @csrf
                 <button type="submit" class="logout-btn">
                     Log out
