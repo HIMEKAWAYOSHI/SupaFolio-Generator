@@ -116,11 +116,7 @@
 
         /* Required field indicator */
 
-        .required-mark {
-            color: var(--red);
-            font-weight: 700;
-            margin-left: 3px;
-        }
+    
 
         .field-error {
             margin: 5px 0 0;
@@ -768,7 +764,7 @@
                         <div class="field">
                             <label for="title">
                                 Portfolio Title
-                                <span class="required-mark">*</span>
+                              
                             </label>
 
                             <input
@@ -783,7 +779,7 @@
                         <div class="field">
                             <label for="full_name">
                                 Full Name
-                                 <span class="required-mark">*</span>
+                                 
                             </label>
 
                             <input
@@ -798,7 +794,7 @@
                         <div class="field">
                             <label for="email">
                                 Email 
-                                <span class="required-mark">*</span>
+                               
                             </label>
 
                             <input
@@ -811,7 +807,7 @@
                         </div>
 
                         <div class="field">
-                            <label for="contact_number">Contact Number <span class="required-mark">*</span></label>
+                            <label for="contact_number">Contact Number </label>
                             <input
                                 id="contact_number"
                                 type="text"
